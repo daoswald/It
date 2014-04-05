@@ -24,15 +24,8 @@ sub BUILDARGS {
   return { @args };                            # Handle a flat list of params.
 }
 
-#sub BUILD {
-#  my $self = shift;
-#  croak __PACKAGE__ . ': "code" attribute must be set in constructor'
-#    unless eval { $self->can('code'); 1; } && 'CODE' eq ref $self->code;
-#  
-#}
-  
 sub _gather {
-  my $self = shift;
+  my( $self, $quantity ) = @_;
   my @rv;
 
   if( $self->has_sentinel ) {
